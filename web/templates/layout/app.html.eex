@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charSet="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Decora</title>
+        <meta name="description" content="Decora"/>
+        <%= if Mix.env == :dev do %>
+        <% else %>
+        <link rel="stylesheet" type="text/css" href="<%= static_path(@conn, "/css/styles.css") %>"/>
+        <% end %>
+    <link rel="shortcut icon" type="image/png" href="./favicon.ico"/>
+  </head>
+
+  <body>
+
+      <div id="main"></div>
+
+    <%= if Mix.env == :dev do %>
+      <script src='http://localhost:8080/js/app.js'></script>
+    <% else %>
+      <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <% end %>
+
+  </body>
+</html>

@@ -1,0 +1,230 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic);
+
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss';
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome.scss';
+// can add Boostrap overrides, additional Sass/CSS below...
+body {
+  background-color: #F6F7F9;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.jumbotron {
+  text-align: left;
+  button {
+    margin-left: 30px;
+  }
+}
+
+.signup-modal {
+  margin: 60px auto;
+  background-color: #fff;
+  .signup-modal-header {
+    text-align: center;
+    padding: 0 20px;
+    @media (max-width: $screen-xs-max) {
+      padding: 0;
+    }
+    img {
+      width: 43px;
+      height: 45px;
+      margin-top: 40px;
+    }
+    h1 {
+      font-weight: 300;
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+      @media (max-width: $screen-sm-max) {
+        font-size: 28px;
+      }
+    }
+  }
+  .signup-subtitle {
+
+    font-weight: 400;
+    font-size: 16px;
+    color: #999999;
+    width: 80%;
+    text-align: center;
+    margin: -20px auto 20px;
+  }
+
+  .signup-buttons-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    button {
+      background-color: #3A5797;
+      border: 0;
+      font-size: 1.3em;
+      padding: 15px;
+      display: block;
+      width: 90%;
+      margin: 50px auto 30px;
+      @media (max-width: $screen-sm-max) {
+        font-size: 1.1em;
+      }
+      i {
+        font-size: 1.4em;
+        float: right;
+        margin-right: 20px;
+        @media (max-width: $screen-sm-max) {
+          margin-right: 5px;
+        }
+        @media (max-width: 320px) {
+          display: none;
+        }
+
+      }
+      &.btn-signup-email {
+        background-color: #BFCAD4;
+        color: #fff;
+        margin-top: 0;
+      }
+    }
+    hr {
+      margin-top: 60px;
+      margin-bottom: 30px;
+      height: 2px;
+      border: none;
+      color: #F3F3F3;
+      background-color: #F3F3F3;
+
+    }
+    p {
+      a {
+        color: #999999;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      padding-bottom: 30px;
+    }
+  }
+
+  form {
+    margin-left: 40px;
+    margin-right: 40px;
+    .form-group {
+      margin-bottom: 30px;
+      color: #999999;
+      label {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      input {
+        border: 0px;
+        border-radius: 3px;
+        background: #F6F7F9;
+        box-shadow: none;
+        padding: 25px 22px;
+        font-size: 16px;
+        font-weight: 400;
+
+      }
+    }
+    .signup-modal-explanation {
+      text-align: center;
+      font-size: 18px;
+      color: #999999;
+      margin-bottom: 30px;
+    }
+    .btn-create-account {
+      background: #3EDDA9;
+      border-radius: 3px;
+      border: 0px;
+      padding: 20px 0px;
+    }
+    p.signup-modal-footer {
+      font-size: 14px;
+      color: #999999;
+      text-align: center;
+      margin-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+}
+
+/* Overlay style */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(246, 247, 249, 0.95);
+  overflow-y: scroll;
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  overflow: hidden;
+  border: none;
+  background: url("../assets/images/cross.png") no-repeat center center;
+  text-indent: 200%;
+  color: transparent;
+  outline: none;
+  z-index: 100;
+}
+
+/* Menu style */
+.overlay .container {
+  overflow-y: scroll;
+}
+
+/* Effects */
+.overlay-hugeinc {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+  transition: opacity 0.5s, visibility 0s 0.5s;
+}
+
+.overlay-hugeinc.open {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.overlay-hugeinc .container {
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+}
+
+.overlay-hugeinc .signup-modal {
+  opacity: 0.4;
+  -webkit-transform: translateY(-25%) rotateX(35deg);
+  transform: translateY(-25%) rotateX(35deg);
+  -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
+  z-index: 0;
+}
+
+.overlay-hugeinc.open .signup-modal {
+  opacity: 1;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+.overlay-hugeinc.close .signup-modal {
+  -webkit-transform: translateY(25%) rotateX(-35deg);
+  transform: translateY(25%) rotateX(-35deg);
+}
+
+@media screen and (max-height: 30.5em) {
+  .overlay nav {
+    height: 70%;
+    font-size: 34px;
+  }
+  .overlay ul li {
+    min-height: 34px;
+  }
+}
